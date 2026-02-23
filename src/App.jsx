@@ -1,20 +1,24 @@
-import { useState } from "react";
-import ColorText from "./ColorText";
+import React from "react";
+
+function ColorText({ color }) {
+  return (
+    <h1 style={{ color: color }}>
+      This text is {color}
+    </h1>
+  );
+}
 
 function App() {
-
-  const colors = ["red", "blue", "green", "purple"];
-  const [index, setIndex] = useState(0);
-
-  const changeColor = () => {
-    setIndex((index + 1) % colors.length);
-  };
+  const colors = ["red", "blue", "green", "purple", "orange"];
 
   return (
-    <>
-      <ColorText color={colors[index]} />
-      <button onClick={changeColor}>Change Color</button>
-    </>
+    <div style={{ textAlign: "center", marginTop: "50px" }}>
+      <ColorText color={colors[0]} />
+      <ColorText color={colors[1]} />
+      <ColorText color={colors[2]} />
+      <ColorText color={colors[3]} />
+      <ColorText color={colors[4]} />
+    </div>
   );
 }
 
